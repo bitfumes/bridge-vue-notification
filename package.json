@@ -1,0 +1,29 @@
+{
+  "name": "bridge-notification-vue",
+  "version": "1.0.0",
+  "description": "A notification component for vuejs",
+  "main": "dist/bridge.umd.js",
+  "module": "dist/bridge.esm.js",
+  "unpkg": "dist/bridge.min.js",
+  "browser": {
+    "./sfc": "src/bridge.vue"
+  },
+  "keywords": [
+    "vuejs",
+    "vue",
+    "notification",
+    "alert"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitfumes/bridge-notification-vue"
+  },
+  "bugs": {
+    "url": "https://github.com/bitfumes/JWTVerify/bridge-notification-vue"
+  },
+  "author": "sarthaksavvy",
+  "license": "ISC",
+  "dependencies": {
+    "velocity-animate": "^1.2.3"
+  }
+}
