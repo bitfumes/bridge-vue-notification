@@ -18,7 +18,7 @@ npm install --save bridge-vue-notification
 // main.js:
 
 import Vue from "vue";
-Vue.use(require("bridge-notification-vue"));
+Vue.use(require("bridge-vue-notification"));
 ```
 
 ```javascript
@@ -33,45 +33,21 @@ Vue.use(require("bridge-notification-vue"));
 <script>
 
 export default {
-  created(){
-    this.$notify({
-        message: "Bridge Notification is Awesome 😍",
-        duration: 3000,
-        position: 'center',
-        animate: {
-          x: 0,
-          y: 330,
-        },
-      });
+  methods:{
+    show(){
+      this.$notify({
+          message: "Bridge Notification is Awesome 😍",
+          duration: 3000,
+          position: 'center',
+          animate: {
+            x: 0,
+            y: 330,
+          },
+        });
+    }
   }
 }
 </script>
 
-<button on:click={show}> Show Notification </button>
-```
-
-## Providing custom style component
-
-```javascript
-// ChildrenComponent.svelte
-
-import { notify } from "bridge-svelte-notification";
-
-  function show(position) {
-    notify({
-      message: "Bridge Notification is Awesome 😍",
-      type: 'success',
-      duration: 3000,
-      position: 'center',
-      animate: {
-            y: 100,
-            x: 0,
-            duration: 500
-      },
-      style:'backgound-color:blue;color:black'
-    });
-  }
-</script>
-
-<button on:click={show}> Show Notification </button>
+<button @click="show">Show Notification</button>
 ```
