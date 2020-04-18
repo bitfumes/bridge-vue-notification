@@ -7,7 +7,7 @@
         v-on:leave="leave"
         @beforEnter="beforeEnter"
       >
-        <Content :data="item" v-for="(item, i) in left" :key="i" />
+        <Content :data="item" v-for="(item, i) in left" :key="item.count" />
       </transition-group>
     </div>
 
@@ -17,7 +17,7 @@
         v-on:enter="enter"
         v-on:leave="leave"
       >
-        <Content :data="item" v-for="(item, i) in center" :key="i" />
+        <Content :data="item" v-for="(item, i) in center" :key="item.count" />
       </transition-group>
     </div>
 
@@ -27,7 +27,7 @@
         v-on:enter="enter"
         v-on:leave="leave"
       >
-        <Content :data="item" v-for="(item, i) in right" :key="i" />
+        <Content :data="item" v-for="(item, i) in right" :key="item.count" />
       </transition-group>
     </div>
 
@@ -37,7 +37,7 @@
         v-on:enter="enter"
         v-on:leave="leave"
       >
-        <Content :data="item" v-for="(item, i) in bottomright" :key="i" />
+        <Content :data="item" v-for="item in bottomright" :key="item.count" />
       </transition-group>
     </div>
 
@@ -47,7 +47,7 @@
         v-on:enter="enter"
         v-on:leave="leave"
       >
-        <Content :data="item" v-for="(item, i) in bottomleft" :key="i" />
+        <Content :data="item" v-for="item in bottomleft" :key="item.count" />
       </transition-group>
     </div>
 
@@ -57,7 +57,7 @@
         v-on:enter="enter"
         v-on:leave="leave"
       >
-        <Content :data="item" v-for="(item, i) in bottomcenter" :key="i" />
+        <Content :data="item" v-for="item in bottomcenter" :key="item.count" />
       </transition-group>
     </div>
   </div>
@@ -94,7 +94,7 @@ export default {
   mounted() {
     events.$on("add", (data) => {
       let name = this.getPosition(data.position);
-      data = { ...defaultData, ...data };
+      data = { ...defaultData, ...data, count: this[name].length };
       this[name].push(data);
       this.removeAfter(data, name);
     });
