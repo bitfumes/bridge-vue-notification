@@ -93,8 +93,9 @@ export default {
   },
   mounted() {
     events.$on("add", (data) => {
-      data = { ...defaultData, ...data, count: this[name].length };
+      data = { ...defaultData, ...data };
       let name = this.getPosition(data.position);
+      data = { ...data, count: this[name].length };
       this[name].push(data);
       this.removeAfter(data, name);
     });
