@@ -93,8 +93,8 @@ export default {
   },
   mounted() {
     events.$on("add", (data) => {
-      let name = this.getPosition(data.position);
       data = { ...defaultData, ...data, count: this[name].length };
+      let name = this.getPosition(data.position);
       this[name].push(data);
       this.removeAfter(data, name);
     });
